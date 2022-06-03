@@ -1,2 +1,2 @@
-# MCXPLossModifier
-On death xp loss modifier plugin. First time making a plugin lol
+# XPDropModifier
+On death xp drop modifier plugin.
