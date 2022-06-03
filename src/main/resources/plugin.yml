@@ -1,0 +1,4 @@
+name: XPDropModifier
+version: 0.1
+main: com.opencratesoftware.xpdropmodifier.XPLossModifierPlugin
+api-version: 1.14
