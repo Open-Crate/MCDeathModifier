@@ -32,11 +32,11 @@ public final class EntityDeathListener implements Listener
             else
                 playerLevel = Math.round((player.getLevel()) * expMultiplier);
 
-            if(player.getLevel() <= 16)
+            if(playerLevel <= 16)
             {
                 PlayerTotalExp = (playerLevel * playerLevel) + (6 * playerLevel);
             }
-            else if (player.getLevel() <= 31)
+            else if (playerLevel <= 31)
             {
                 PlayerTotalExp = ((2.5f * (playerLevel * playerLevel)) - (40.5f * playerLevel)) + 360;
             }
@@ -45,7 +45,7 @@ public final class EntityDeathListener implements Listener
                 PlayerTotalExp = ((4.5f * (playerLevel * playerLevel)) - (162.5f * playerLevel)) + 2220;
             }
             Math.max(PlayerTotalExp, 1277950);
-            
+
             if (multiplyTotalExp)
                 e.setDroppedExp(Math.round(PlayerTotalExp * expMultiplier));
             else
