@@ -1,1 +1,2 @@
-XPDropMultiplier: 1.0f
+XPDropMultiplier: 1.0
+MultiplyTotalExp: true
