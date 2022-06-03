@@ -8,13 +8,16 @@ import org.bukkit.event.entity.EntityDeathEvent;
 
 public final class EntityDeathListener implements Listener
 {
-    public EntityDeathListener(float inExpMultiplier)
+    public EntityDeathListener(float inExpMultiplier, boolean inMultiplyTotalExp)
     {
         expMultiplier = inExpMultiplier;
+        multiplyTotalExp = inMultiplyTotalExp;
     }
 
-    public float expMultiplier = 1.0f;
+    private float expMultiplier = 1.0f;
     
+    private boolean multiplyTotalExp = true;
+
     @EventHandler
     public void onEntityDeath(EntityDeathEvent e)
     {
@@ -22,7 +25,13 @@ public final class EntityDeathListener implements Listener
         {
             Player player = Player.class.cast(e.getEntity());
             float PlayerTotalExp = 0.0f;
-            int playerLevel = player.getLevel();
+            int playerLevel;
+
+            if (multiplyTotalExp)
+                playerLevel = player.getLevel();
+            else
+                playerLevel = Math.round((player.getLevel()) * expMultiplier);
+
             if(player.getLevel() <= 16)
             {
                 PlayerTotalExp = (playerLevel * playerLevel) + (6 * playerLevel);
@@ -36,7 +45,12 @@ public final class EntityDeathListener implements Listener
                 PlayerTotalExp = ((4.5f * (playerLevel * playerLevel)) - (162.5f * playerLevel)) + 2220;
             }
             Math.max(PlayerTotalExp, 1277950);
-            e.setDroppedExp(Math.round(PlayerTotalExp * expMultiplier));
+            
+            if (multiplyTotalExp)
+                e.setDroppedExp(Math.round(PlayerTotalExp * expMultiplier));
+            else
+                e.setDroppedExp(Math.round(PlayerTotalExp));
+
         }
     }   
 }
