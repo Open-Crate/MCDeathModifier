@@ -8,12 +8,18 @@ import org.bukkit.event.entity.EntityDeathEvent;
 
 public final class EntityDeathListener implements Listener
 {
+    public EntityDeathListener(float inExpMultiplier)
+    {
+        expMultiplier = inExpMultiplier;
+    }
+
+    public float expMultiplier = 1.0f;
+    
     @EventHandler
     public void onEntityDeath(EntityDeathEvent e)
     {
         if (e.getEntity().getType() == EntityType.PLAYER)
         {
-            float expMultiplier = 1;
             Player player = Player.class.cast(e.getEntity());
             float PlayerTotalExp = 0.0f;
             int playerLevel = player.getLevel();

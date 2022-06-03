@@ -7,6 +7,9 @@ public final class XPDropModifier  extends JavaPlugin
     @Override
     public void onEnable()
     {
-        getServer().getPluginManager().registerEvents(new EntityDeathListener(), this );
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        getServer().getPluginManager().registerEvents(new EntityDeathListener((float) getConfig().getDouble("XPDropMultiplier")), this );
     }
 }
