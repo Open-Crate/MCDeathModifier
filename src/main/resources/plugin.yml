@@ -1,4 +1,4 @@
-name: XPDropModifier
-version: 0.1
-main: com.opencratesoftware.xpdropmodifier.XPDropModifier
+name: DeathModifier
+version: 0.2
+main: com.opencratesoftware.mcdeathmodifier.DeathModifier
 api-version: 1.14

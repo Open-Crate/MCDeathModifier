@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.opencratesoftware</groupId>
-  <artifactId>xpdropmodifier</artifactId>
-  <version>0.1</version>
+  <artifactId>mcdeathmodifier</artifactId>
+  <version>0.2</version>
 
-  <name>xpdropmodifier</name>
-  <!-- FIXME change it to the project's website -->
+  <name>mcdeathmodifier</name>
+
   <url>http://www.opencratesoftware.com/</url>
 
   <properties>

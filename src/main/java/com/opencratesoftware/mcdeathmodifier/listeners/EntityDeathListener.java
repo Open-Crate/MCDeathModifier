@@ -1,10 +1,12 @@
-package com.opencratesoftware.listeners;
+package com.opencratesoftware.mcdeathmodifier.listeners;
 
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+
+import com.opencratesoftware.mcdeathmodifier.Config;
 
 public final class EntityDeathListener implements Listener
 {
@@ -44,13 +46,16 @@ public final class EntityDeathListener implements Listener
             {
                 PlayerTotalExp = ((4.5f * (playerLevel * playerLevel)) - (162.5f * playerLevel)) + 2220;
             }
-            Math.max(PlayerTotalExp, 1277950);
 
             if (multiplyTotalExp)
                 e.setDroppedExp(Math.round(PlayerTotalExp * expMultiplier));
             else
                 e.setDroppedExp(Math.round(PlayerTotalExp));
 
+        }
+        if (Config.getSendDeathCoords())
+        {
+            e.getEntity().sendMessage("You died at: " + String.valueOf(Math.round(e.getEntity().getLocation().getX())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getY())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getZ())));
         }
     }   
 }

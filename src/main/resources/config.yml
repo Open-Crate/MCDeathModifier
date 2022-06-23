@@ -1,2 +1,4 @@
 XPDropMultiplier: 1.0
 MultiplyTotalExp: true
+
+send-death-coords: false
