@@ -52,10 +52,12 @@ public final class EntityDeathListener implements Listener
             else
                 e.setDroppedExp(Math.round(PlayerTotalExp));
 
+
+            if (Config.getSendDeathCoords())
+            {
+                e.getEntity().sendMessage("You died at: " + String.valueOf(Math.round(e.getEntity().getLocation().getX())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getY())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getZ())) + " ");
+            }
         }
-        if (Config.getSendDeathCoords())
-        {
-            e.getEntity().sendMessage("You died at: " + String.valueOf(Math.round(e.getEntity().getLocation().getX())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getY())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getZ())));
-        }
+
     }   
 }
