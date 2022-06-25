@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 
+
 import com.opencratesoftware.mcdeathmodifier.Config;
 
 public final class EntityDeathListener implements Listener
@@ -55,7 +56,20 @@ public final class EntityDeathListener implements Listener
 
             if (Config.getSendDeathCoords())
             {
-                e.getEntity().sendMessage("You died at: " + String.valueOf(Math.round(e.getEntity().getLocation().getX())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getY())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getZ())) + " ");
+                String dimensionName = e.getEntity().getWorld().getName();
+                if (dimensionName.contains("_nether"))
+                {
+                    dimensionName = "nether";
+                }
+                else if(dimensionName.contains("_the_end"))
+                {
+                    dimensionName = "end";
+                }
+                else 
+                {
+                    dimensionName = "overworld";
+                }
+                e.getEntity().sendMessage("You died at: " + String.valueOf(Math.round(e.getEntity().getLocation().getX())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getY())) + " " + String.valueOf(Math.round(e.getEntity().getLocation().getZ())) + " (" + dimensionName + ")");
             }
         }
 

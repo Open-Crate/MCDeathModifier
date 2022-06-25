@@ -1,4 +1,4 @@
 name: DeathModifier
-version: 0.2
+version: 0.2.1
 main: com.opencratesoftware.mcdeathmodifier.DeathModifier
 api-version: 1.14
